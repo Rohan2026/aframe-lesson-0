@@ -7,19 +7,35 @@
   </head>
   <body>
     <a-scene>
-      <a-text value="My A-Frame Scene" position="-1 2 -4"></a-text>
-      <a-dodecahedron position="2 1 -4"></a-dodecahedron>
+        <a-assets>
+          <img id="paper" src="https://thumbs.dreamstime.com/b/old-wood-background-wall-33054589.jpg">
+          <img id="ground" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF0X41A5gUwY_GUVXn2zI8mosvaHHAxCEpLQ&usqp=CAU">
+        </a-assets>
+     
+        <a-text value="My A-Frame Scene" position="-1 2 -4"></a-text>
+     
+      <a-dodecahedron src="#paper" position="2 1 -4"></a-dodecahedron>
+     
       <a-ring> position="3 2 -4" src="#texture"</a-ring>
-      <a-entity position="10 1 -5" rotation="1 45 30">
-      <a-box position="-1 1.5 -3" rotation="0 45 0" color="#CCC3D9"></a-box>
-      <a-sphere position="0 1.25 -8" radius="1.25" color="#EF2D5E">
+     
+    <a-entity position="10 1 -5" rotation="1 45 30" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+      <a-box src="#paper" position="-1 2.5 -3" rotation="0 45 0"></a-box>
+       <a-sphere position="0 1.25 -8" radius="1.25" color="#EF2D5E">
       <a-ring position="3 2 -4" radius-inner="1" radius-outer="5"></a-ring>
       </a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" rotation="90 180 180"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="14" height="41" color="#7BC8A4"></a-plane>
+      <a-plane repeat="21 11" src="#ground" position="0 0 -4" rotation="-90 0 0" width="14" height="41" color="#7BC8A4"></a-plane>
     </a-entity>
+    
       <a-sky color="#ECECEC"></a-sky>
       <a-torus-knot position="-12 19 -25"></a-torus-knot>
+
+      <a-light type="ambient" color="0000FF"></a-light>
+      <a-light type="point" intensity="5" position="-2 4 4"></a-light>
+
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
     </a-scene>
   </body>
 </html>
